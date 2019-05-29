@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-list>
+    <ion-item>
+      <div class="divHeader">
+        <h3 class="nameOM">{{name}}</h3>
+        <p>{{tipoOrdem}}</p>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-header>
+
+<ion-content>
+
+    <ion-button disabled color="light" bold shape="round" expand="block" class="buttonResumo"><span>Detalhado</span></ion-button>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title color="primary" (click)="fecharModal()">Fechar</ion-title>
+  </ion-toolbar>
+</ion-footer>
