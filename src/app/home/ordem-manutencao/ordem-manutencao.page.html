@@ -5,8 +5,8 @@
 
   <ion-card *ngFor="let card of cards" (click)="DetalhesOrdem(card)">
     <ion-card-header>
-      <ion-card-subtitle>{{card.tipoOrdem}}</ion-card-subtitle>
-      <ion-card-title>{{card.name}}</ion-card-title>
+      <ion-card-subtitle>{{card.maintenanceType}}</ion-card-subtitle>
+      <ion-card-title>{{card.orderNumber}}</ion-card-title>
       <ion-button size="small">Iniciar</ion-button>
     </ion-card-header>
   </ion-card>

@@ -9,9 +9,9 @@ export class LoginProvider {
       
   }
 
-  public login(username, password : any){
+  public login(email, password : any){
     let json = {
-      login: username,
+      email: email,
       password : password
       }
       this.http.url = "http://localhost:3000/api/v1/login"

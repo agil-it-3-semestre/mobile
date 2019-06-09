@@ -11,6 +11,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginProvider } from '../app/providers/login';
 import { HttpProvider } from '../app/providers/http';
 import { HttpModule } from '@angular/http';
+import { Toasts } from './providers/toast';
+import { LoginPageModule } from './login/login.module';
+import { HomePageModule } from './home/home.module';
+import { OrdemManutencaoPageModule } from './home/ordem-manutencao/ordem-manutencao.module';
+import { NotificationPageModule } from './home/notification/notification.module';
+import { OrdemProvider } from './providers/ordem-manutencao';
+import { DetalhesPageModule } from '../app/component/ordem/detalhes/detalhes.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +29,11 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     HttpModule,
+    LoginPageModule,
+    HomePageModule,
+    OrdemManutencaoPageModule,
+    DetalhesPageModule,
+    NotificationPageModule,
     IonicModule.forRoot(),
     AppRoutingModule
   ],
@@ -29,6 +41,8 @@ import { HttpModule } from '@angular/http';
     StatusBar,
     SplashScreen,
     LoginProvider,
+    OrdemProvider,
+    Toasts,
     HttpProvider,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

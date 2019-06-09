@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { HomePage } from '../home/home.page';
 import { Router } from '@angular/router';
-import { LoginProvider } from '../providers/login'
+import { LoginProvider } from '../providers/login';
+import { Toasts } from '../providers/toast';
 
 @Component({
   selector: 'app-login',
@@ -11,34 +12,29 @@ import { LoginProvider } from '../providers/login'
 })
 export class LoginPage {
 
-  private usuario : any = 'Marcio';
-  private senha : any = '123456';
+  private email : string = "jose@senai.com.br";
+  private senha : string = "jose123";
 
-  constructor(private menuCtrl : MenuController, private router: Router, private loginProvider : LoginProvider) {
+  constructor(private menuCtrl : MenuController, private router: Router, private loginProvider : LoginProvider, private toast : Toasts) {
    }
 
   ionViewWillEnter(){
     this.menuCtrl.enable(false);
   }
 
-  redirect(){
-    this.router.navigateByUrl('/home')
-  }
-
   ionViewWillLeave(){
     this.menuCtrl.enable(true);
   }
 
-  metodoGet(){
-    this.loginProvider.login(this.usuario, this.senha).subscribe(
+  login(){
+    this.loginProvider.login(this.email, this.senha).subscribe(
       (data : any) => {
-        console.log(data);
+        this.router.navigateByUrl('/home')
       },
       (error : any) =>{
-        console.log(error);
+        this.toast.toastLoginShow('Senha incorreta', 2000);
       }
     )
-
   }
 
 }

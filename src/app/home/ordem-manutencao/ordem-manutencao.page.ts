@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HomePage } from '../home.page';
 import { ModalController } from '@ionic/angular';
-import { ModalComponent } from '../../component/ordem/modal/modal.component';
+import { OrdemProvider } from '../../providers/ordem-manutencao';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ordem-manutencao',
@@ -10,43 +11,28 @@ import { ModalComponent } from '../../component/ordem/modal/modal.component';
 })
 export class OrdemManutencaoPage implements OnInit {
 
-  public cards = [
-    {
-      id: 1,
-      name: "OM 1001",
-      tipoOrdem: "Preventiva"
-    },
-    {
-      id: 2,
-      name: "OM 1002",
-      tipoOrdem: "Corretiva"
-    },
-    {
-      id: 3,
-      name: "OM 1003",
-      tipoOrdem: "Preventiva"
-    },
-    {
-      id: 4,
-      name: "OM 1004",
-      tipoOrdem: "Corretiva"
-    }
-  ]
-  constructor(private modalController: ModalController) { }
+  public cards : any;
+  constructor(private router: Router, private ordemProvider : OrdemProvider) {
+    this.buscarOrdens();
+   }
 
   ngOnInit() {
   }
 
-  async DetalhesOrdem(ordem) {
-    const modal = await this.modalController.create({
-      component: ModalComponent,
-      componentProps: {
-        "idOrdem": ordem.id,
-        "name": ordem.name,
-        "tipoOrdem": ordem.tipoOrdem
+  DetalhesOrdem(ordem) {
+    this.router.navigateByUrl('/detalhes/' + ordem.id)
+  }
+
+  public buscarOrdens(){
+    this.ordemProvider.getOrdens().subscribe(
+      (data : any) => {
+        this.cards = JSON.parse(data._body);
+        console.log(this.cards)
+      },
+      (error : any) => {
+        console.log(error)
       }
-    });
-    return await modal.present();
+    )
   }
 
 }

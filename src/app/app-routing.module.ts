@@ -29,7 +29,17 @@ const routes: Routes = [
   { 
     path: 'home/ordem-manutencao', 
     loadChildren: './home/ordem-manutencao/ordem-manutencao.module#OrdemManutencaoPageModule' 
+  },
+  { 
+    path: 'detalhes/:ordem',
+    loadChildren: './component/ordem/detalhes/detalhes.module#DetalhesPageModule' 
+  },
+  { 
+    path: 'problema/:problema', 
+    loadChildren: './component/ordem/detalhes/problema/problema.module#ProblemaPageModule' 
   }
+
+
 
 ];
 

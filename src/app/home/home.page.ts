@@ -7,12 +7,14 @@ import { NotificationPage } from '../home/notification/notification.page';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  constructor(){
+    
+  }
+  
   public tabs : any = this.obterTabs();
   public notificationPage = NotificationPage;
 
-  public obterTabs(){
-    
+  public obterTabs(){    
     return [
       {
         route : "ordem-manutencao",
