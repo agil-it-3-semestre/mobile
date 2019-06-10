@@ -18,4 +18,9 @@ export class OrdemProvider {
     this.http.url = "http://localhost:3000/api/v1/maintenance-orders/" + id
     return this.http.get()
   }
+
+  public getOperacaoProblema(id : any){
+    this.http.url = "http://localhost:3000/api/v1/operations/" + id
+    return this.http.get()
+  }
 }

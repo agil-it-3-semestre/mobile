@@ -49,9 +49,9 @@
     </ion-list>
   </ion-card>
   <ion-card>
-    <h5 class="h5DadosOperacao">Dados operação
+    <h4 class="h4DadosOperacao">Dados operação
       <ion-icon name="add-circle" (click)="adicionarOperacao()" class="ionIconAdicionarOperacao"></ion-icon>
-    </h5>
+    </h4>
 
     <ion-grid>
       <ion-row>
@@ -62,7 +62,7 @@
           Resumo do Problema
         </ion-col>
       </ion-row>
-      <ion-row *ngFor="let operation of detalhesOrdem.operations" (click)="abrirTelaProblema(operation)">
+      <ion-row *ngFor="let operation of detalhesOrdem.operations" (click)="abrirTelaProblema(operation.id)">
         <ion-col size="2">
           {{operation.sequence}}
         </ion-col>
@@ -80,16 +80,16 @@
     <ion-list>
       <ion-item lines="none">
         <ion-card class="IonCardAssinaturas">
-          <ion-label strong style="float: center">Solicitante:</ion-label>
+          <ion-card-subtitle class="pAssinaturasSubTitles">Solicitante</ion-card-subtitle>
           <ion-checkbox style="margin: 0 auto;" color="primary" checked="true" disabled="true"></ion-checkbox>
         </ion-card>
         <ion-card class="IonCardAssinaturas">
-          <ion-label strong style="float: center">Técnico:</ion-label>
-          <ion-checkbox style="margin: 0 auto;" color="primary" checked="true"></ion-checkbox>
+            <ion-card-subtitle class="pAssinaturasSubTitles">Técnico</ion-card-subtitle>
+          <ion-checkbox style="margin: 0 auto;" color="primary"></ion-checkbox>
         </ion-card>
         <ion-card class="IonCardAssinaturas">
-          <ion-label strong style="float: center">Líder:</ion-label>
-          <ion-checkbox style="margin: 0 auto;" color="primary" checked="true" disabled="true"></ion-checkbox>
+            <ion-card-subtitle class="pAssinaturasSubTitles">Líder</ion-card-subtitle>
+          <ion-checkbox style="margin: 0 auto;" color="primary" disabled="true"></ion-checkbox>
         </ion-card>
       </ion-item>
     </ion-list>

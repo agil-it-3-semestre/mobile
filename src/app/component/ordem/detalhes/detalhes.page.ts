@@ -40,11 +40,10 @@ export class DetalhesPage implements OnInit {
 
   public tratarData(data){
     let objData = new Date(data)
-    return objData.getDay() + '/' + objData.getMonth() + '/' + objData.getFullYear() + ':' + objData.getHours() + ':' + objData.getMinutes();
+    return objData.getDay() + '/' + objData.getMonth() + '/' + objData.getFullYear() + ' - ' + objData.getHours() + ':' + objData.getMinutes();
   }
 
   public abrirTelaProblema(operation){
-    debugger;
     this.router.navigateByUrl('/problema/' + operation)
   }
   
