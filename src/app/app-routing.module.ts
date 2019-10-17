@@ -31,15 +31,17 @@ const routes: Routes = [
     loadChildren: './home/ordem-manutencao/ordem-manutencao.module#OrdemManutencaoPageModule' 
   },
   { 
-    path: 'detalhes/:ordem',
-    loadChildren: './component/ordem/detalhes/detalhes.module#DetalhesPageModule' 
+    path: 'details/:ordem',
+    loadChildren: './component/ordem/details/details.module#DetailsPageModule' 
   },
   { 
-    path: 'problema/:problema', 
-    loadChildren: './component/ordem/detalhes/problema/problema.module#ProblemaPageModule' 
+    path: 'problems/:problema', 
+    loadChildren: './component/ordem/problems/problems.module#ProblemsPageModule' 
+  },
+  { 
+    path: 'details/:detalhe', 
+    loadChildren: './component/ordem/details/details.module#DetailsPageModule' 
   }
-
-
 
 ];
 

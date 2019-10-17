@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { OrdemProvider } from '../../../../providers/ordem-manutencao';
 
 @Component({
-  selector: 'app-problema',
-  templateUrl: './problema.page.html',
-  styleUrls: ['./problema.page.scss'],
+  selector: 'app-problems',
+  templateUrl: './problems.page.html',
+  styleUrls: ['./problems.page.scss'],
 })
-export class ProblemaPage implements OnInit {
+export class ProblemsPage implements OnInit {
 
   public idProblema : any;
   public detalhesOperacao : any;

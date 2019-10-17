@@ -23,4 +23,13 @@ export class OrdemProvider {
     this.http.url = "http://localhost:3000/api/v1/operations/" + id
     return this.http.get()
   }
+
+  public postAssinatura(idOrdem, idUser : any){
+    this.http.url = "http://localhost:3000/api/v1/maintenance-orders/" + idOrdem + "/assign"
+    return this.http.post(
+      {
+        userId : idUser
+      }
+    )
+  }
 }

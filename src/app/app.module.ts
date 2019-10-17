@@ -17,7 +17,7 @@ import { HomePageModule } from './home/home.module';
 import { OrdemManutencaoPageModule } from './home/ordem-manutencao/ordem-manutencao.module';
 import { NotificationPageModule } from './home/notification/notification.module';
 import { OrdemProvider } from './providers/ordem-manutencao';
-import { DetalhesPageModule } from '../app/component/ordem/detalhes/detalhes.module';
+import { DetailsPageModule } from '../app/component/ordem/main-order/details/details.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { DetalhesPageModule } from '../app/component/ordem/detalhes/detalhes.mod
     LoginPageModule,
     HomePageModule,
     OrdemManutencaoPageModule,
-    DetalhesPageModule,
+    DetailsPageModule,
     NotificationPageModule,
     IonicModule.forRoot(),
     AppRoutingModule

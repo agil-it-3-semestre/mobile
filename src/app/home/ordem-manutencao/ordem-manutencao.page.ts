@@ -20,7 +20,8 @@ export class OrdemManutencaoPage implements OnInit {
   }
 
   DetalhesOrdem(ordem) {
-    this.router.navigateByUrl('/detalhes/' + ordem.id)
+    debugger;
+    this.router.navigateByUrl('/home/notification')
   }
 
   public buscarOrdens(){
@@ -35,4 +36,11 @@ export class OrdemManutencaoPage implements OnInit {
     )
   }
 
+  public iniciarOM(){
+    console.log("Iniciar OM")
+  }
+
+  public pausarOM(){
+    console.log("Pausar OM")
+  }
 }

@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { OrdemProvider } from '../../../providers/ordem-manutencao';
+import { OrdemProvider } from '../../../../providers/ordem-manutencao';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router'
+import { Toasts } from '../../../../providers/toast';
 
 @Component({
-  selector: 'app-detalhes',
-  templateUrl: './detalhes.page.html',
-  styleUrls: ['./detalhes.page.scss'],
+  selector: 'app-details',
+  templateUrl: './details.page.html',
+  styleUrls: ['./details.page.scss'],
 })
-export class DetalhesPage implements OnInit {
+export class DetailsPage implements OnInit {
 
   public id : any;
   public detalhesOrdem : any;
   
-  constructor(public activeRoute : ActivatedRoute, private router: Router, private ordemProvider : OrdemProvider) {
+  constructor(public activeRoute : ActivatedRoute, private router: Router, private ordemProvider : OrdemProvider, public toast : Toasts) {
     this.id = this.activeRoute.snapshot.paramMap.get('ordem');
     this.getOrdemManutencao()
    }
@@ -22,7 +23,7 @@ export class DetalhesPage implements OnInit {
   }
 
   public adicionarOperacao(){
-    console.log('show')
+    
   }
 
   public getOrdemManutencao(){
@@ -44,7 +45,23 @@ export class DetalhesPage implements OnInit {
   }
 
   public abrirTelaProblema(operation){
-    this.router.navigateByUrl('/problema/' + operation)
+    this.router.navigateByUrl('/problems/' + operation)
+  }
+
+  public assinatura(idOrdem : any){
+
+    this.ordemProvider.postAssinatura(idOrdem, window.localStorage.getItem("userId")).subscribe(
+      (data : any) => {
+        this.toast.toastLoginShow('Assinatura realizada com sucesso!!', 2000);
+      },
+      (error : any) => {
+        console.log(error)
+      }
+    )
+  }
+
+  public OrdemAcao(){
+    console.log("Topperson")
   }
   
 }

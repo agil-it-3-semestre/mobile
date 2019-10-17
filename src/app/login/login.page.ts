@@ -15,26 +15,20 @@ export class LoginPage {
   private email : string = "jose@senai.com.br";
   private senha : string = "jose123";
 
-  constructor(private menuCtrl : MenuController, private router: Router, private loginProvider : LoginProvider, private toast : Toasts) {
+  constructor(private router: Router, private loginProvider : LoginProvider, private toast : Toasts) {
    }
 
-  ionViewWillEnter(){
-    this.menuCtrl.enable(false);
-  }
-
-  ionViewWillLeave(){
-    this.menuCtrl.enable(true);
-  }
-
   login(){
-    this.loginProvider.login(this.email, this.senha).subscribe(
-      (data : any) => {
+    // this.loginProvider.login(this.email, this.senha).subscribe(
+    //   (data : any) => {
+        // let user = JSON.parse(data._body);
+        // window.localStorage.setItem("userId", user.id)
         this.router.navigateByUrl('/home')
-      },
-      (error : any) =>{
-        this.toast.toastLoginShow('Senha incorreta', 2000);
-      }
-    )
+    //   },
+    //   (error : any) =>{
+    //     this.toast.toastLoginShow('Senha incorreta', 2000);
+    //   }
+    // )
   }
 
 }

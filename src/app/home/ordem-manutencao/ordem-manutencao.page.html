@@ -2,12 +2,24 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-card *ngFor="let card of cards" (click)="DetalhesOrdem(card)">
+  
+  <ion-card   *ngFor="let card of cards" (click)="DetalhesOrdem(card)">
     <ion-card-header>
       <ion-card-subtitle>{{card.maintenanceType}}</ion-card-subtitle>
       <ion-card-title>{{card.orderNumber}}</ion-card-title>
-      <ion-button size="small">Iniciar</ion-button>
+      <ion-item lines="none">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="3">
+              <ion-button fill="outline" (click)="iniciarOM()">Iniciar</ion-button>
+            </ion-col>
+            <ion-col size="6"></ion-col>
+            <ion-col size="3">
+              <ion-button style="margin-left: -20%;" color="warning" (click)="pausarOM()" fill="outline">Pausar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
     </ion-card-header>
   </ion-card>
 </ion-content>
